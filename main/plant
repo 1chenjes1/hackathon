@@ -1,0 +1,41 @@
+public class Plant {
+    private String name;
+    private String type;
+    private Boolean isWatered;
+    private int interval;
+
+    public Plant(String name, String type, int interval) {
+        this.name = name;
+        this.type = type;
+        this.isWatered = false;
+        this.interval = interval;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) { this.name = name; }
+
+    public String getType() {
+        return type;
+    }
+    public void setType(String type) { this.type = type; }
+
+    public Boolean getWatered() {
+        return isWatered;
+    }
+    public void setWatered(Boolean watered) {
+        isWatered = watered;
+    }
+
+    public void water() {
+        isWatered = true;
+    }
+    public int getInterval() {
+        return interval;
+    }
+    public void setInterval(int interval) {
+        this.interval = interval;
+    }
+}
+

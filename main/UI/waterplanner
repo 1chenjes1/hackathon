@@ -1,0 +1,44 @@
+class WaterPlanner {
+    private Schedule schedule;
+
+    public WaterPlanner() {
+        this.schedule = new Schedule();
+    }
+
+    public void runWaterPlanner() {
+        Scanner scanner = new Scanner(System.in);
+        boolean quit = false;
+
+        while (!quit) {
+            System.out.println("What would you like to do? (add, water, nextDay, quit) ");
+            String command = scanner.nextLine();
+            switch (command) {
+                case "add":
+                    System.out.println("Enter plant name: ");
+                    String name = scanner.nextLine();
+                    System.out.println("Enter plant type: ");
+                    String type = scanner.nextLine();
+                    System.out.println("Enter watering interval: ");
+                    int interval = Integer.valueOf(scanner.nextLine());
+                    this.schedule.addPlant(name, type, interval);
+                    break;
+                case "water":
+                    System.out.println("Enter plant name: ");
+                    String plantName = scanner.nextLine();
+                    this.schedule.waterPlant(plantName);
+                    break;
+                case "nextDay":
+                    this.schedule.nextDay();
+                    break;
+                case "quit":
+                    quit = true;
+                    break;
+                default:
+                    System.out.println("Invalid command");
+                    break;
+            }
+        }
+        System.out.println("Goodbye!");
+
+    }
+}

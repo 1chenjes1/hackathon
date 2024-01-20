@@ -1,0 +1,44 @@
+class Schedule {
+    private ArrayList<Plant> plants;
+    private int currentDay;
+
+    public Schedule() {
+        this.plants = new ArrayList<Plant>();
+        this.currentDay = 0;
+    }
+    
+    public void addPlant(String name, String type, int interval) {
+        Plant plant = new Plant(name, type, interval);
+        this.plants.add(plant);
+    }
+
+    public void waterPlant(String name) {
+        for (Plant plant : this.plants) {
+            if (plant.getName().equals(name)) {
+                plant.water();
+            }
+        }
+    }
+
+    public void nextDay() {
+        this.currentDay++;
+    }
+
+    public ArrayList<Plant> getPlants() {
+        return plants;
+    }
+
+    public int getCurrentDay() {
+        return currentDay;
+    }
+
+    public ArrayList<Plant> plantsToWater() {
+        ArrayList<Plant> plantsToWater = new ArrayList<Plant>();
+        for (Plant plant : this.plants) {
+            if (plant.getWatered() == false && this.currentDay % plant.getInterval() == 0) {
+                plantsToWater.add(plant);
+            }
+        }
+        return plantsToWater;
+    }
+}
